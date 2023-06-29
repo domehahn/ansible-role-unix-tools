@@ -1,15 +1,19 @@
 ---
+- name: Update and upgrade apt packages
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 600
+
 - name: Install iproute2
-  shell: |
-    sudo apt-get update
-    sudo apt-get -y install iproute2
+  apt:
+    name: iproute2
+  
 - name: Install curl
-  shell: |
-    sudo apt-get update
-    sudo apt install curl
+  apt: 
+    name: curl
 
 - name: Install ping
-  shell: |
-    sudo apt-get update
-    sudo apt-get install iputils-ping
+  apt: 
+    name: iputils-ping
 ...
